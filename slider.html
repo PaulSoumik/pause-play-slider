@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slider</title>
+<style>
+
+.wrapper{
+  position: absolute;
+  height:90%;
+  width:60%;
+  margin:0;
+  padding:0;
+  background: #fff;
+  
+}
+.container{
+  position: absolute;
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  background: transparent;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns:100% 100% 100% 100% ;
+  
+   
+  
+}
+@keyframes move{
+  10%{
+    left:90;
+  }
+   20%{
+    left:70;
+  }
+   50%{
+    left:70;
+  }
+    80%{
+    left:-150%;
+  }
+   100%{
+    left: -150%;
+  }
+}
+.block{
+  position: relative;
+  height:90%;
+  width:90%;
+  margin:0;
+  padding:0;
+  left:50%;
+  top:50%;
+  text-align: center;
+ padding-top: 30%;
+
+  transform: translate(-50%,-50%);
+
+ font-size: 55px;
+  color:#fff;
+  font-family: cursive;
+  animation: move 19s infinite;
+  animation-delay:2s;
+  animation-play-state: running;
+  
+}
+.block1{
+  background: #e47474;
+}
+.block2{
+  background: #74e474;
+}
+.block3{
+  background: #7474e4;
+}
+
+.button{
+  height:50px;
+  width:50px;
+  position:absolute;
+  z-index:999;
+  background: #29f;
+  color:#fff;
+  left: 80%;
+  top: 60%;
+  text-align: center;
+  cursor: pointer;
+   border-radius: 50%;
+}
+.button::before{
+  content:'Pause';
+  height:50px;
+  width:50px;
+  position:absolute;
+  z-index:999;
+  left:50%;
+  top: 50%;
+  color:#fff;
+  transform: translateX(-50%) translateY(-20%);
+  text-align: center;
+  cursor: pointer;
+ 
+  
+}
+
+.button:hover::before{
+  content:'Play';
+}
+
+
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+  <div class="container">
+      <div class="block block1"> one
+  </div>
+      <div class="block block2"> two
+  </div>
+      <div class="block block3"> three
+  </div>
+    
+    <div class="button">
+  </div>
+  </div>
+  </div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script>
+  $(".button").hover(function(){
+  
+  $(".block").css("animation-play-state","paused");
+  
+});
+  $(".button").mouseleave(function(){
+  
+  $(".block").css("animation-play-state","running");
+  
+});</script>
+  </body>
+  </html>
+  
